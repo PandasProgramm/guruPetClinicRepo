@@ -7,11 +7,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.Set;
+
 @Controller
 public record VetController(@Qualifier("vetServiceMap") CrudService<Vet, Long> vetServiceMap) {
 
     @GetMapping("/vets")
     public Model getVets(Model model) {
         return model.addAllAttributes(this.vetServiceMap.findAll());
+    }
+
+    public Set<Vet> getVets() {
+        return this.vetServiceMap.findAll();
     }
 }

@@ -16,14 +16,12 @@ public record DataLoader(OwnerService ownerService, VetService vetService) imple
     public void run(String... args) throws Exception {
         System.out.println("start.....");
         Owner owner1 = new Owner();
-        owner1.setId(2L);
         owner1.setFirstName("Michael");
         owner1.setLastName("Weston");
 
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
-        owner2.setId(1L);
         owner2.setFirstName("Fiona");
         owner2.setLastName("Glenanne");
 
@@ -31,14 +29,12 @@ public record DataLoader(OwnerService ownerService, VetService vetService) imple
         System.out.println("Loaded Owners...");
 
         Vet vet = new Vet();
-        vet.setId(1L);
         vet.setFirstName("Sam");
         vet.setLastName("Axe");
 
         vetService.save(vet);
 
         Vet vet2 = new Vet();
-        vet2.setId(2L);
         vet.setFirstName("Jessie");
         vet.setLastName("Porter");
 

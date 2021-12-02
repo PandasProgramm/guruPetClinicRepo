@@ -7,11 +7,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.Set;
+
 @Controller
 public record OwnerController(@Qualifier("ownerServiceMap") CrudService<Owner, Long> ownerServiceMap) {
 
     @GetMapping("/owners")
     public Model getOwners(Model model) {
         return model.addAllAttributes(this.ownerServiceMap.findAll());
+    }
+
+    public Set<Owner> getOwnerSet() {
+        return this.ownerServiceMap.findAll();
     }
 }
